@@ -42,11 +42,16 @@ const App = () => {
     window.print();
   };
 
-  const handleClearData = () => {
+const handleClearData = () => {
+  // Menambahkan alert konfirmasi sebelum menghapus data
+  const isConfirmed = window.confirm("Apakah Anda yakin ingin menghapus seluruh data?");
+  if (isConfirmed) {
     setState([]);
     storeData('data', []);
     storeData('lastState', []);
-  };
+  }
+};
+
 
   return (
     <div className='container'>
@@ -56,6 +61,7 @@ const App = () => {
       <div className='row'>
         <div className='col m12 s12'>
           <BmiForm change={handleChange} />
+          <Bar labelData={data.date} bmiData={data.bmi} />
           <div>
             <div className='row center'>
               <h4 className='white-text'>Data 7 Hari</h4>
