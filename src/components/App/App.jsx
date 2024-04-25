@@ -42,11 +42,16 @@ const App = () => {
     window.print();
   };
 
-  const handleClearData = () => {
+const handleClearData = () => {
+  // Menambahkan alert konfirmasi sebelum menghapus data
+  const isConfirmed = window.confirm("Apakah Anda yakin ingin menghapus seluruh data?");
+  if (isConfirmed) {
     setState([]);
     storeData('data', []);
     storeData('lastState', []);
-  };
+  }
+};
+
 
   return (
     <div className='container'>
